@@ -14,7 +14,7 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head> 
     <meta charset="utf-8" />
     <link
       rel="apple-touch-icon"
@@ -63,12 +63,12 @@
         Tip 2: you can also add an image using data-image tag
     -->
     <div class="logo"> <a class="navbar-brand" href="#">
-        <img src="../assets/img/logo.png" width="100%" height="100%" style="margin-left: 2%;" alt="">
+        <img src="assets/img/logo.png" width="100%" height="100%" style="margin-left: 2%;" alt="">
       </a></div>
         <div class="sidebar-wrapper">
           <ul class="nav">
           <li class="nav-item">
-              <a class="nav-link" href="./adminDashboard_sidebar.php">
+              <a class="nav-link" href="adminDashboard_sidebar.php">
                 <i class="material-icons">dashboard</i>
                 <p>Dashboard</p>
               </a>
@@ -81,27 +81,27 @@
               <div class="collapse" id="client">
                 <ul class="list-unstyled nav">
                   <li class="nav-item">
-                    <a class="nav-link" name href="./addClient.php"
+                    <a class="nav-link" name href="addClient.php"
                       >Add Client</a
                     >
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link" href="./assignService.php"
+                    <a class="nav-link" href="assignService.php"
                       >Assign Service</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./modifyClient.php">
+                    <a class="nav-link" href="modifyClient.php">
                       Modify Client</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./createService.php"
+                    <a class="nav-link" href="createService.php"
                       >Modify Service</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./createPackage.php"
+                    <a class="nav-link" href="createPackage.php"
                       >Create Package</a
                     >
                   </li>
@@ -119,52 +119,52 @@
               <div class="collapse" id="master">
                 <ul class="list-unstyled nav">
                   <li class="nav-item">
-                    <a class="nav-link" name href="./bankDetails.php"
+                    <a class="nav-link" name href="bankDetails.php"
                       >Bank Details</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./LOB.php">LOB</a>
+                    <a class="nav-link" href="LOB.php">LOB</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./mandatoryDocuments.php"
+                    <a class="nav-link" href="mandatoryDocuments.php"
                       >Mandatory Documents</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./package.php">Create Package</a>
+                    <a class="nav-link" href="package.php">Create Package</a>
                   </li>
                   <li class="nav-item">
                     <a
                       class="nav-link"
-                      href="./service.php
+                      href="service.php
                     "
                       >Service</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./serviceType.php"
+                    <a class="nav-link" href="serviceType.php"
                       >Service Type</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./addModifyUser.php"
+                    <a class="nav-link" href="addModifyUser.php"
                       >Add Modify User</a
                     >
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="./standardMacro.php"
+                    <a class="nav-link" href="standardMacro.php"
                       >Standard Macro</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./reportColor.php"
+                    <a class="nav-link" href="reportColor.php"
                       >Report Color Code</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./reportConfig.php"
+                    <a class="nav-link" href="reportConfig.php"
                       >Report Configuration Master</a
                     >
                   </li>
@@ -313,6 +313,7 @@
                           <label for="Client Name" style="margin-left: 4%;"
                             >Client Name</label
                           >
+                          <!-- code change -->
                           <select class="browser-default custom-select"
                             name="ClientName"
                             id="ClientName"
@@ -345,12 +346,12 @@
                             >Service Type</label
                           >
                           <select
-                            id="select_service_type" name="select_service_type" onchange="getservice(this.value)"
+                            id="select_service_type" class="browser-default custom-select" name="select_service_type" onchange="getservice(this.value)"
                             class="form-control"
                             required
                           >
-                            <option class='bg-secondary text-light'>Choose...</option>
-                            <option class='bg-secondary text-light'>...</option>
+                            <option class='bg-secondary text-light' default not selected>Choose...</option>
+                            
                           </select>
                         </div>
 
@@ -359,12 +360,12 @@
                             >Service Name</label
                           >
                           <select
-                            id="select_service_name" name="select_service_name" onchange="getservicename(this.value)"
+                            id="select_service_name" class="browser-default custom-select" name="select_service_name" onchange="getservicename(this.value)"
                             class="form-control"
                             required
                           >
-                            <option  class='bg-secondary text-light'>Choose...</option>
-                            <option class='bg-secondary text-light'>...</option>
+                            <option  class='bg-secondary text-light' default not selected>Choose...</option>
+                            
                           </select>
                         </div>
                       </div>
@@ -399,13 +400,15 @@
                         class="row justify-content-end"
                         style="margin-right: 10%;"
                       >
-                      
+                        <button id="assignSubmit" type="submit" onclick="TestIT2();" class="btn btn-primary mx-2">
+                          Save
+                        </button>
 						<button
                           type="button"
                           class="btn btn-primary"
                           onclick="TestIT2();"
                         >
-                          Save
+                          Cancel
                         </button>
                         <button
                           type="button"

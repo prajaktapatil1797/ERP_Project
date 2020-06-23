@@ -48,7 +48,7 @@ function sendJSON(){
 	 
 
 	
-	xhr.open("POST",'./API/addClient.php', true); 
+	xhr.open("POST",'API/addClient.php', true); 
 
 	
 	xhr.setRequestHeader("Content-Type", "application/json"); 

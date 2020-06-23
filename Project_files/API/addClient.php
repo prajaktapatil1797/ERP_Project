@@ -27,7 +27,7 @@ if( !empty($json_data) )
 
   // Decodes the JSON object to an Array
   $data = json_decode($json_data, true);
-  var_dump($data);
+  //var_dump($data);
   $Client_Name=$data['Client Name'];	
   $Client_Code=$data['Client Code'];	 
   $Client_SPOC=$data['Client SPOC'];
@@ -87,7 +87,7 @@ if( !empty($json_data) )
     `city`='".$City."',
     `Currency`='".$currency."'";
 
-             echo"<script>console.log(\"SQL Query:\"+$check)</script>";
+         //    echo"<script>console.log(\"SQL Query:\"+$check)</script>";
              $result=$this->conn->query($check);
           if($result){
               echo "  sucess";

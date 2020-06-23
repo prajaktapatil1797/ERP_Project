@@ -138,22 +138,29 @@ const addClientSubmit = document.querySelector('#ajax button#add-client'),
   
 let data = {}
 
-const sendRequest = (url) => {
+const sendRequest = (url) => { 
   fetch(url, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
     body: JSON.stringify(data),
   })
-  .then(response => response.json())
+  .then(response => response.text())
   .then(data => {
+    if (url === "https://www.bgvhwd.xyz/Project_files/API/addClient.php" && data.trim() == 'sucess') {
+      alert('data submitted successfully')
+      window.location.href = "modifyClient.php"
+    }
+
     console.log('Success:', data);
   })
   .catch((error) => {
     console.error('Error:', error);
   });
 }
+
+
+// sendRequest("./API/addClient.php")
+// sendRequest("https://www.bgvhwd.xyz/Project_files/API/addClient.php")
+// sendRequest2("https://www.bgvhwd.xyz/Project_files/API/servicename.php")
 
 const submit = (url) => {
   return e => {
@@ -196,7 +203,9 @@ const submit = (url) => {
   }
 }
 
-addClientSubmit && addClientSubmit.addEventListener('click', submit('API/addClient.php'))
+
+// addClientSubmit && addClientSubmit.addEventListener('click', submit('API/addClient.php'))
+addClientSubmit && addClientSubmit.addEventListener('click', submit('https://www.bgvhwd.xyz/Project_files/API/addClient.php'))
 console.log('working 2');
 
 const modifyClientData = [{
@@ -270,35 +279,6 @@ const modifyClientData = [{
   }
 ]
 
-const clientCode = document.querySelector('#client-code'),
-  inputState = document.querySelector('#inputState')
-const getModifyClientData = (d) => {
-  // debouncing
-  let timer
-  return e => {
-    clearTimeout(timer)
-    timer = setTimeout(() => {
-      fetch('API/modifyClient.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            data: e.target.value
-          }),
-        })
-        .then(response => response.json())
-        .then(data => {
-          modifyClientData = data
-          updateModifyClientData()
-          console.log('Success:', data);
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-    }, d)
-  }
-}
 
 const tbody = document.querySelector('#table-body')
 
@@ -391,7 +371,7 @@ tbody ? tbody.onclick = (e) => {
       e.target.innerHTML = "Unblock"
       data[0].block = 1
     }
-    sendRequest("api/modifyClient.php")
+    sendRequest("API/modifyClient.php")
   }
   if (e.target.classList.contains('edit')) {
     e.preventDefault()    
@@ -425,7 +405,7 @@ if (window.location.pathname === "/task/views/addClient.html") {
 
 
 const addBankDetails = document.querySelector('#ajax button#add-bank-details')
-addBankDetails && addBankDetails.addEventListener('click', submit("api/addBankDetails.php"))
+addBankDetails && addBankDetails.addEventListener('click', submit("API/addBankDetails.php"))
 
 console.log("working 4");
 
@@ -449,7 +429,7 @@ console.log('working all');
   //     }
   //   })
   //   if (run === true) {
-  //     sendRequest('api/addBankDetails.php')
+  //     sendRequest('APi/addBankDetails.php')
   //   }
   
   //   data = {}

@@ -312,10 +312,12 @@
                           <label for="inputState" style="margin-left: 4%;"
                             >Client Name</label
                           >
-                          <select id="ClientName" name="ClientName" class="form-control" onchange="T3();">
+                          <input 
+                           class="form-control" id="inputState" type="text" id="ClientName">
+                          <!-- <select id="ClientName" name="ClientName" class="form-control" onchange="T3();">
                             <option selected>Choose...</option>
                             <option>...</option>
-                          </select>
+                          </select> -->
                         </div>
                         <div class="form-group col-md-4"></div>
                         <div class="form-group col-md-4">
@@ -348,10 +350,7 @@
                             Go Live Date
                           </th>
                           <th>
-                            Edit
-                          </th>
-                          <th>
-                            Delete
+                            Actions
                           </th>
                         </thead>
                         <tbody id="table">
